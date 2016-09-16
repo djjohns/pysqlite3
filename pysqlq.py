@@ -6,7 +6,7 @@
 
 import sqlite3
 
-conn = sqlite3.connect('mydatabase.db')
+conn = sqlite3.connect('LogDB.db')
 
 #------------------------------------------------------------------------------#
 #row_factory to return results as Row objects similar to python dictionaies
@@ -23,8 +23,8 @@ cursor = conn.cursor()
 #we pass in.
 
 #Swap comments to change from All results to First result
-sql = 'SELECT * FROM tablename WHERE fieldname=?'
-cursor.execute(sql, [('MatchName')])
+sql = 'SELECT * FROM ObjectLogTbl WHERE Discription=?'
+cursor.execute(sql, [('verification error')])
 print cursor.fetchall()
 #print cursor.fetchone()
 
@@ -32,18 +32,18 @@ print'\nHere is a listing of all the records in the table:\n'
 #print'\nHere is the listing you reqested:\n'
 
 #------------------------------------------------------------------------------#
-#Next query looping over the results from above putting them in ascending
+#Next query looping over the results from putting them in ascending
 #order by rowid
-for row in cursor.execute('SELECT rowid, * FROM tablename ORDER BY fieldname'):
-    print row
-
+#for row in cursor.execute('SELECT rowid, * FROM ObjectLogTbl ORDER BY Date'):
+#   print row
+#
 #------------------------------------------------------------------------------#
 #Lastly a sql query to use LIKE to search the entire table
 #for partial strings using the % as a wildcard operator
-print '\nResults from LIKE query:\n'
-sql = """
-SELECT * FROM albums
-WHERE title Like 'PartialString%'"""
-cursor.execute(sql)
-print cursor.fetchall
+#print '\nResults from LIKE query:\n'
+#sql = """
+#SELECT * FROM ObjectLogTbl
+#WHERE Discription Like 'verifcation error%'"""
+#cursor.execute(sql)
+#print cursor.fetchall
 #print cursor.fetchone

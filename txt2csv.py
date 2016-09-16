@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#SorterLog2csv.py written by David J. Johns II to aid in converting a tab
+#txt2csv.py written by David J. Johns II to aid in converting a tab
 #dilimited text file into a csv file for easier data manipulation
 #https://github.com/djjohns
 
